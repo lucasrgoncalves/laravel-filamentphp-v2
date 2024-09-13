@@ -12,7 +12,7 @@ class Product extends Model
 
     public $table = 'products';
 
-    //Recomendado utilizar o fillable para permitir apenas os campos que estiverem dentro do array, dessa forma com guarded está permitindo tudo
+    //Recomendado utilizar o fillable
     protected $guarded = [];
 
     public function categories(): BelongsToMany

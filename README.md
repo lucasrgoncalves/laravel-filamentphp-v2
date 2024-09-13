@@ -4,29 +4,27 @@ Este projeto utiliza o **[FilamentPHP](https://filamentphp.com/)**, um framework
 
 ### Principais Funcionalidades
 
-- **CRUDs Rápidos**: Gerencie facilmente modelos com operações de criação, leitura, atualização e exclusão.
-- **Formulários Personalizáveis**: Crie formulários com validações integradas e campos dinâmicos.
-- **Widgets e Dashboards**: Construa dashboards personalizados com gráficos e estatísticas em tempo real.
-- **Autenticação**: Controle de acesso com suporte a papéis e permissões via Laravel.
+-   **CRUDs Rápidos**: Gerencie facilmente modelos com operações de criação, leitura, atualização e exclusão.
+-   **Formulários Personalizáveis**: Crie formulários com validações integradas e campos dinâmicos.
+-   **Widgets e Dashboards**: Construa dashboards personalizados com gráficos e estatísticas em tempo real.
+-   **Autenticação**: Controle de acesso com suporte a papéis e permissões via Laravel.
 
 ### Por que FilamentPHP?
 
-- **Fácil de usar**: Integração simplificada com Laravel.
-- **Flexível**: Altamente customizável para atender às necessidades do projeto.
-- **Livewire**: Integração nativa para criar interfaces dinâmicas sem JavaScript manual.
+-   **Fácil de usar**: Integração simplificada com Laravel.
+-   **Flexível**: Altamente customizável para atender às necessidades do projeto.
+-   **Livewire**: Integração nativa para criar interfaces dinâmicas sem JavaScript manual.
 
 Para mais detalhes, consulte a [documentação oficial](https://filamentphp.com/docs).
-
-
 
 ## Requisitos
 
 Para rodar este projeto, você precisará ter os seguintes softwares instalados:
 
-- **Docker**: Para a configuração dos contêineres de desenvolvimento.
-- **Composer**: Gerenciador de dependências do PHP.
-- **PHP 8.1+**: Versão do PHP necessária para rodar o projeto.
-- **Npm**: Gerenciador de pacotes JavaScript para build de front-end.
+-   **Docker**: Para a configuração dos contêineres de desenvolvimento.
+-   **Composer**: Gerenciador de dependências do PHP.
+-   **PHP 8.1+**: Versão do PHP necessária para rodar o projeto.
+-   **Npm**: Gerenciador de pacotes JavaScript para build de front-end.
 
 ## Como rodar este projeto
 
@@ -58,10 +56,11 @@ sail up -d
 # Executar as migrações e popular o banco de dados
 sail artisan migrate --seed
 
-# 3. Criar um usuário administrador para acessar o painel Filament
-sail artisan make:filament-user
+# 3. Configurar o Shield para gerenciar as permissões de acesso
+sail artisan shield:install
 
 # 4. Acessar o projeto no navegador através da seguinte URL:
+# Usuário admin e senha 12345678
 # http://localhost/admin
 
 ```
