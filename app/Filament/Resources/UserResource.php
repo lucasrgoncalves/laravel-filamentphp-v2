@@ -18,7 +18,19 @@ class UserResource extends Resource
 {
     protected static ?string $model = User::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationGroup = 'Admin';
+
+    protected static ?string $navigationIcon = 'heroicon-o-user-group';
+
+    protected static ?string $navigationLabel = 'Usuários';
+
+    protected static ?string $modelLabel = 'Usuário';
+
+    protected static ?int $navigationSort = 1;
+
+    // Habilitando busca global pela coluna name da tabela users
+    // Abaixo foi adicionada a função getGloballySearchableAttributes para buscar por mais de um campo
+    protected static ?string $recordTitleAttribute = 'name';
 
     public static function form(Form $form): Form
     {
@@ -47,6 +59,7 @@ class UserResource extends Resource
             ->columns([
                 TextColumn::make('id'),
                 TextColumn::make('name')->label('Nome'),
+                TextColumn::make('email')->label('E-mail'),
                 TextColumn::make('created_at')->label('Criado em')->date('d/m/Y h:i:s'),
                 TextColumn::make('updated_at')->label('Atualizado em')->date('d/m/Y h:i:s'),
             ])
@@ -100,8 +113,20 @@ class UserResource extends Resource
     }
 
     //Sobrescreve o método canCreate 'escondendo' o botão para criação de um novo usuário caso o return seja false
-    public static function canCreate(): bool
+    // public static function canCreate(): bool
+    // {
+    //     return true;
+    // }
+
+    // Efetua a contagem de registros e exibe em forma de badge em frente ao nome do item do menu lateral
+    protected static function getNavigationBadge(): string
     {
-        return true;
+        return self::getModel()::count();
+    }
+
+    // Efetua busca global na tabela users utilizando as colunas name e email
+    public static function getGloballySearchableAttributes(): array
+    {
+        return ['name', 'email'];
     }
 }

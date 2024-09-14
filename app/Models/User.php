@@ -6,6 +6,7 @@ namespace App\Models;
 
 use Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -49,5 +50,10 @@ class User extends Authenticatable
     public function password(): Attribute
     {
         return new Attribute(set: fn($value) => bcrypt($value));
+    }
+
+    public function userOrders(): HasMany
+    {
+        return $this->hasMany(UserOrder::class);
     }
 }

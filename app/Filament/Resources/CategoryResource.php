@@ -22,6 +22,10 @@ class CategoryResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
+    protected static ?string $navigationLabel = 'Categorias';
+
+    protected static ?string $modelLabel = 'Categoria';
+
     public static function form(Form $form): Form
     {
         return $form
@@ -54,14 +58,14 @@ class CategoryResource extends Resource
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
@@ -69,5 +73,10 @@ class CategoryResource extends Resource
             'create' => Pages\CreateCategory::route('/create'),
             'edit' => Pages\EditCategory::route('/{record}/edit'),
         ];
-    }    
+    }
+
+    protected static function getNavigationBadge(): string
+    {
+        return self::getModel()::count();
+    }
 }
