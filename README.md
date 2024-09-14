@@ -58,6 +58,9 @@ sail artisan migrate --seed
 
 # 3. Configurar o Shield para gerenciar as permissões de acesso
 sail artisan shield:install
+# Do you wish to continue? (yes/no) - Responda com 'yes'
+# Run `shield:install --fresh` instead? (yes/no) - Responda com 'yes'
+# Please provide the `UserID` to be set as `super_admin` - Responda com 1
 
 # 4. Acessar o projeto no navegador através da seguinte URL:
 # Usuário admin e senha 12345678
