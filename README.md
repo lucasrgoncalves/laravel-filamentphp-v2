@@ -48,16 +48,16 @@ php artisan key:generate
 php artisan sail:install
 
 # Construir os contêineres Docker
-sail build
+./vendor/bin/sail build
 
 # Iniciar os contêineres
-sail up -d
+./vendor/bin/sail up -d
 
 # Executar as migrações e popular o banco de dados
-sail artisan migrate --seed
+./vendor/bin/sail artisan migrate --seed
 
 # 3. Configurar o Shield para gerenciar as permissões de acesso
-sail artisan shield:install
+./vendor/bin/sail artisan shield:install
 # Do you wish to continue? (yes/no) - Responda com 'yes'
 # Run `shield:install --fresh` instead? (yes/no) - Responda com 'yes'
 # Please provide the `UserID` to be set as `super_admin` - Responda com 1
